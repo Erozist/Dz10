@@ -29,6 +29,10 @@ class Record:
         self.phones = []
 
 
+    def name_(self):
+        return self.name
+
+
     def add_phone(self, num):
         self.phones.append(num)
         return self.phones
@@ -62,13 +66,13 @@ class Record:
 class AddressBook(UserDict):
     
     def add_record(self, args):
-        self.data[str(args.name)] = args.phones
+        self.data[args.name.value] = args
+        return self.data
 
 
     def find(self, name):
-        print(name, self.data, sep=' ### ')
         if name in self.data:
-            return Record(name)  # Не розумію що тут повертати?
+            return self.data[name]  
 
 
     def delete(self, name):
@@ -78,4 +82,3 @@ class AddressBook(UserDict):
 
 if __name__ == "__main__":
     ...
-    
