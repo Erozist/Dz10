@@ -35,18 +35,16 @@ class Record:
 
 
     def remove_phone(self, num):
-        if num.isdigit() and len(num) == 10:
-            for i, phone in enumerate(self.phones):
-                if num in phone.value:
-                    del self.phones[i]
+        for i, phone in enumerate(self.phones):
+            if num == phone.value:
+                del self.phones[i]
 
 
     def edit_phone(self, old_num, new_num):
-        if old_num.isdigit() and len(old_num) == 10:
-            for i, phone in enumerate(self.phones):
-                if old_num in phone.value:
-                    self.phones[i] = Phone(new_num)
-                    return self.phones
+        for i, phone in enumerate(self.phones):
+            if old_num == phone.value:
+                self.phones[i] = Phone(new_num)
+                return self.phones
         raise ValueError('This phone does not exist')
 
 
