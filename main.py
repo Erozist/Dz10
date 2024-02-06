@@ -50,7 +50,7 @@ class Record:
 
     def find_phone(self, num):
         for phone in self.phones:
-            if num in phone.value:
+            if num == phone.value:
                 return Phone(num)
         return None
 
